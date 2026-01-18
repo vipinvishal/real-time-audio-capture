@@ -69,7 +69,20 @@ In a world of remote collaboration, capturing just one side of a conversation is
 
 ---
 
-## 📝 Project Structure
+## � Tips & Troubleshooting
+
+### Viewing Live Transcripts
+If you want to clear the port and see the full live output in your terminal, use this command:
+```bash
+lsof -ti :8000 | xargs kill -9 && cd backend && python3 main.py
+```
+
+### No Transcription?
+- **Backend Logs**: Ensure the terminal shows "Received chunks".
+- **Environment**: Double check your `.env` file for valid Azure credentials.
+- **Port 8000**: If the server fails to start, use the command above to kill any hanging processes.
+
+## �📝 Project Structure
 ```text
 ├── backend/
 │   ├── main.py          # FastAPI WebSocket & Azure logic
@@ -83,3 +96,6 @@ In a world of remote collaboration, capturing just one side of a conversation is
 │   └── package.json     # Node dependencies
 └── README.md            # You are here!
 ```
+
+###to check the live transcription in the terminal, use this command:
+lsof -ti :8000 | xargs kill -9 && cd backend && python3 main.py
