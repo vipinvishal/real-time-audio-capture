@@ -4,7 +4,8 @@ import { useTranscription, Transcript } from './hooks/useTranscription';
 import './App.css';
 
 function App() {
-    const { transcripts, isRecording, error, startRecording, stopRecording } = useTranscription('ws://localhost:8000/ws/transcribe');
+    const wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:8000/ws/transcribe';
+    const { transcripts, isRecording, error, startRecording, stopRecording } = useTranscription(wsUrl);
     const transcriptEndRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
